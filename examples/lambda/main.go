@@ -7,14 +7,14 @@ import (
 	"google.golang.org/grpc/codes"
 
 	indentv1 "go.indent.com/indent-go/api/indent/v1"
-	"go.indent.com/indent-go/pkg/common"
 	"go.indent.com/webhook-go"
 	"go.indent.com/webhook-go/lambda"
 )
 
 func main() {
 	handler := webhook.ApplyHandler{
-		Supported:   []string{common.KindRole},
+		// TODO: specify supported kinds otherwise none will be allowed
+		Supported:   []string{},
 		ApplyGrant:  handleGrant,
 		ApplyRevoke: handleRevoke,
 	}
